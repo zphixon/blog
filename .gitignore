@@ -1,6 +1,1 @@
-public
-themes
-storage
-static/demo.html
-package-lock.json
-**/node_modules/
+static

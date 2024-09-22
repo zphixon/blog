@@ -1,0 +1,30 @@
+{% import "macros.html" as macros %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>{{ config.title }} {{ section.title }}</title>
+    <link rel="stylesheet" href="/main.css">
+    {{ macros::gfonts() }}
+  </head>
+  <body>
+    <div class="outer">
+      <div class="left"></div>
+      <div class="center">
+        <h1 class="title">
+          {{ macros::parent_links(ancestors=section.ancestors) }}
+          {{ section.title }}
+          <span class="title_description">&ndash; {{ section.description }}</span>
+        </h1>
+        {% if section.generate_feeds %}
+          <a href="{{ section.permalink }}{{ config.feed_filenames | first }}">atom feed</a>
+        {% endif %}
+        <div class="secton_content">
+          {{ section.content | safe }}
+        </div>
+        {{ macros::list_pages(page_list=paginator.pages) }}
+      </div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>

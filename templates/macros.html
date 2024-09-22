@@ -1,0 +1,60 @@
+{% macro list_pages(page_list, limit=50000, tile=false) %}
+  {% if tile %}
+    {% set list_class = 'class="pages tiled_pages"' %}
+  {% else %}
+    {% set list_class = 'class="pages"' %}
+  {% endif %}
+  <div {{ list_class | safe }}>
+    {% for page in page_list %}
+      <div class="page">
+        <div class="page_top">
+          {% if page.extra.link_to %}
+            {% set href = page.extra.link_to %}
+            {% set rel = 'rel="noopener" target="_blank"' %}
+            {% set class = "external_link" %}
+          {% else %}
+            {% set href = page.permalink %}
+            {% set rel = "" %}
+            {% set class = "" %}
+          {% endif %}
+          <a class="{{ class }} page_title_link" href="{{ href | safe }}" {{ rel | safe }}>
+            {% if page.date %}
+              <span class="page_date">{{ page.date }}</span>:
+            {% endif %}
+            <span class="page_title">{{ page.title }}</span>&nbsp;
+          </a>
+          {% if page.description %}
+            <a class="{{ class }} page_description_link" href="{{ href | safe }}" {{ rel | safe }}>
+              <div class="page_description">{{ page.description }}</div>
+            </a>
+          {% endif %}
+        </div>
+        <div class="page_content_preview">
+          {{ page.content | split(pat="</p>") | first | striptags }}
+        </div>
+      </div>
+      {% if loop.index == limit %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro page_list %}
+
+{% macro parent_links(ancestors) %}
+  <span class="ancestors">
+    {% for ancestor_path in ancestors %}
+      {% set ancestor = get_section(path=ancestor_path) %}
+      <a href="{{ ancestor.permalink }}">{{ ancestor.title | default(value=config.title) }}</a>
+      <span class="divider"></span>
+    {% endfor %}
+  </span>
+  {# {% set parent_path = object.ancestors | last %} #}
+  {# {% set parent = get_section(path=parent_path) %} #}
+  {# <a class="parent_link" href="{{ parent.permalink }}">{{ parent.title }}</a> #}
+{% endmacro parent_link %}
+
+{% macro gfonts() %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
+{% endmacro gfonts %}

@@ -1,4 +1,5 @@
 +++
-paginate_by = 3
-sort_by = "date"
+sort_by = "weight"
 +++
+
+**hello!** i'm zack. this is my website.

@@ -1,0 +1,121 @@
+// variables
+
+$link_color: rgb(33, 112, 33);
+$main_text_color: rgb(57, 19, 57);
+$subtle_text_color: rgb(122, 92, 122);
+$background_color: rgb(242, 224, 255);
+$accent_color: rgb(36, 101, 36);
+
+
+// general rules
+
+html {
+    background-color: $background_color;
+    color: $main_text_color;
+    font-family: "Inclusive Sans", sans-serif;
+}
+
+a {
+    // this really looks like shit on chrome. sorry not sorry xd
+    text-decoration: underline dashed;
+    color: $link_color;
+}
+
+// the space is important
+.external_link :last-child::after {
+    content: " [↗]";
+    font-size: 0.6em;
+    vertical-align: top;
+}
+
+
+// index rules
+
+#thetitle {
+    font-size: min(19vw, 8em);
+}
+
+.sections {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em;
+}
+
+.index_content > h1, h2, h3, h4, h5, h6 {
+    font-style: italic;
+    color: $subtle_text_color;
+}
+
+
+// section rules
+
+.ancestors :first-child {
+    text-decoration: none;
+}
+
+.ancestors .divider::after {
+    content: "〉";
+    color: $subtle_text_color;
+}
+
+.title_description {
+    font-style: italic;
+    font-size: 0.8em;
+    color: $subtle_text_color;
+}
+
+.outer {
+    display: grid;
+    grid-template-columns: 1fr 60em 1fr;
+    @media (max-width: 65rem) {
+        grid-template-columns: 1fr 30fr 1fr;
+    }
+}
+
+.center {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 900em;
+}
+
+
+// page list rules (on index and sections)
+
+.tiled_pages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.page {
+    padding: 0.8em;
+}
+
+.page_top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+}
+
+.page_description_link {
+    justify-self: end;
+    text-align: right;
+}
+
+
+// page rules
+
+.page_content {
+    justify-self: start;
+    max-width: 60em;
+}
+
+.page_content > h1, h2, h3, h4, h5, h6 {
+    font-style: italic;
+    color: $subtle_text_color;
+}
