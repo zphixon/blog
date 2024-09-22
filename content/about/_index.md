@@ -23,8 +23,12 @@ other ways to get in contact:
 - [@zphixon on ravelry](https://www.ravelry.com/people/zphixon)
 - email me at [zack@grape.surgery](mailto:zack@grape.surgery)
 
+[![](/buttonsmall.png)](https://grape.surgery)
 [![](i-was-on-cohost.gif)](https://cohost.org/mykocalico/post/7643640-i-had-a-thought-so-i)
 [![](amongusbabies.gif)](https://cohost.org/dreamcast/post/7799278-i-got-one-of-those) <iframe src="//incr.easrng.net/badge?key=grape.surgery" style="background: url(//incr.easrng.net/bg.gif)" title="increment badge" width="88" height="31" frameborder="0"></iframe>
 
-[![](buttonsmall.png)](https://grape.surgery)
-[![](button.png)](https://grape.surgery)
+get my button ([larger one here](button.png)):
+
+```html
+<a href="https://grape.surgery"><img src="https://grape.surgery/buttonsmall.png"></a>
+```
